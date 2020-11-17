@@ -5,68 +5,155 @@
     <script src="bvo.js"></script>
     <meta charset="utf-8" />
     <style>
-      *{font-family: Courier;}
+    *{font-family: Courier;}
+table{border: 2px solid black}
+th{border: 2px solid black}
+td{border: 1px solid black; text-align: right}
     </style>
   </head>
   <body>
 
     <h1>Tests of Binary Vector Operations</h1>
-    
-    <h2>BVO small test</h2>
+    <p>Time to carry out 1000 of each operations on completely random vectors</p>
+
+    <h2>BVO time test (random vectors)</h2>
     <div id="bvotest1">
+    <table>
+    <tr><th></th><th>random vector</th><th>convert. BVO</th><th>BVO intersection</th><th>cla. intersection</th><th>BVO union</th><th>cla. union</th><th>BVO diff</th><th>cla. diff</th></tr>
+    <tr><th>10</th><td id="res_10_0.5_t1"></td><td id="res_10_0.5_t2"></td><td id="res_10_0.5_t3"></td><td id="res_10_0.5_t4"><td id="res_10_0.5_t5"><td id="res_10_0.5_t6"></td><td id="res_10_0.5_t7"></td><td id="res_10_0.5_t8"></td></tr>
+    <tr><th>100</th><td id="res_100_0.5_t1"></td><td id="res_100_0.5_t2"></td><td id="res_100_0.5_t3"></td><td id="res_100_0.5_t4"></td><td id="res_100_0.5_t5"></td><td id="res_100_0.5_t6"></td><td id="res_100_0.5_t7"></td><td id="res_100_0.5_t8"></td></tr>    
+    <tr><th>1000</th><td id="res_1000_0.5_t1"></td><td id="res_1000_0.5_t2"></td><td id="res_1000_0.5_t3"></td><td id="res_1000_0.5_t4"></td><td id="res_1000_0.5_t5"></td><td id="res_1000_0.5_t6"></td><td id="res_1000_0.5_t7"></td><td id="res_1000_0.5_t8"></td></tr>
+    <tr><th>10000</th><td id="res_10000_0.5_t1"></td><td id="res_10000_0.5_t2"></td><td id="res_10000_0.5_t3"></td><td id="res_10000_0.5_t4"></td><td id="res_10000_0.5_t5"></td><td id="res_10000_0.5_t6"></td></td><td id="res_10000_0.5_t7"></td></td><td id="res_10000_0.5_t8"></td></tr>
+    <tr><th>100000</th><td id="res_100000_0.5_t1"></td><td id="res_100000_0.5_t2"></td><td id="res_100000_0.5_t3"></td><td id="res_100000_0.5_t4"></td><td id="res_100000_0.5_t5"></td><td id="res_100000_0.5_t6"></td><td id="res_100000_0.5_t7"></td><td id="res_100000_0.5_t8"></td></tr>
+    </table>
     </div>
 
-    <h2>BVO larger test</h2>
+    <h2>BVO distribution test</h2>
+    <p>Time to carry out 1000 of each operatiosn on random vectors of size 1000 with varying distributions of true/false values.
     <div id="bvotest2">
-    </div>
-    
+    <table>
+    <tr><th></th><th>random vector</th><th>convert. BVO</th><th>BVO intersection</th><th>cla intersection</th><th>BVO union</th><th>cla union</th><th>BVO diff</th><th>cla. diff</th></tr>
+    <tr><th>0.1 true/0.9 false</th><td id="res_1000_0.1_t1"></td><td id="res_1000_0.1_t2"></td><td id="res_1000_0.1_t3"></td><td id="res_1000_0.1_t4"></td><td id="res_1000_0.1_t5"></td><td id="res_1000_0.1_t6"></td><td id="res_1000_0.1_t7"></td><td id="res_1000_0.1_t8"></td></tr>
+    <tr><th>0.2 true/0.8 false</th><td id="res_1000_0.2_t1"></td><td id="res_1000_0.2_t2"></td><td id="res_1000_0.2_t3"></td><td id="res_1000_0.2_t4"></td><td id="res_1000_0.2_t5"></td><td id="res_1000_0.2_t6"></td><td id="res_1000_0.2_t7"></td><td id="res_1000_0.2_t8"></td></tr>
+    <tr><th>0.3 true/0.7 false</th><td id="res_1000_0.3_t1"></td><td id="res_1000_0.3_t2"></td><td id="res_1000_0.3_t3"></td><td id="res_1000_0.3_t4"></td><td id="res_1000_0.3_t5"></td><td id="res_1000_0.3_t6"></td><td id="res_1000_0.3_t7"></td><td id="res_1000_0.3_t8"></td></tr>
+    <tr><th>0.4 true/0.6 false</th><td id="res_1000_0.4_t1"></td><td id="res_1000_0.4_t2"></td><td id="res_1000_0.4_t3"></td><td id="res_1000_0.4_t4"></td><td id="res_1000_0.4_t5"></td><td id="res_1000_0.4_t6"></td><td id="res_1000_0.4_t7"></td><td id="res_1000_0.4_t8"></td></tr>
+    <tr><th>0.6 true/0.4 false</th><td id="res_1000_0.6_t1"></td><td id="res_1000_0.6_t2"></td><td id="res_1000_0.6_t3"></td><td id="res_1000_0.6_t4"></td><td id="res_1000_0.6_t5"></td><td id="res_1000_0.6_t6"></td><td id="res_1000_0.6_t7"></td><td id="res_1000_0.6_t8"></td></tr>
+    <tr><th>0.7 true/0.3 false</th><td id="res_1000_0.7_t1"></td><td id="res_1000_0.7_t2"></td><td id="res_1000_0.7_t3"></td><td id="res_1000_0.7_t4"></td><td id="res_1000_0.7_t5"></td><td id="res_1000_0.7_t6"></td><td id="res_1000_0.7_t7"></td><td id="res_1000_0.7_t8"></td></tr>
+    <tr><th>0.8 true/0.2 false</th><td id="res_1000_0.8_t1"></td><td id="res_1000_0.8_t2"></td><td id="res_1000_0.8_t3"></td><td id="res_1000_0.8_t4"></td><td id="res_1000_0.8_t5"></td><td id="res_1000_0.8_t6"></td><td id="res_1000_0.8_t7"></td><td id="res_1000_0.8_t8"></td></tr>
+    <tr><th>0.9 true/0.1 false</th><td id="res_1000_0.9_t1"></td><td id="res_1000_0.9_t2"></td><td id="res_1000_0.9_t3"></td><td id="res_1000_0.9_t4"></td> <td id="res_1000_0.9_t5"></td><td id="res_1000_0.9_t6"></td><td id="res_1000_0.9_t7"></td><td id="res_1000_0.9_t8"></td></tr>
+    </table>
+</div>    
     <script>
-      
-      var bv1 = new BinaryVector([false,false,true,true,true,true]);
-      var bv2 = new BinaryVector([true,false,true,true,false,false]);
-      var st ="<table>";      
-      console.log(bv1.toString());
-      st+="<tr><th>BV1:</th><td>"+bv1.toString()+"</td></tr>";
-      console.log(bv2.toString());
-      st+="<tr><th>BV2:</th><td>"+bv2.toString()+"</td></tr>";
-      console.log(bv1.intersection(bv2).toString());
-      st+="<tr><th>Intersection:</th><td>"+bv1.intersection(bv2).toString()+"</td></tr>";
-      console.log(bv1.union(bv2).toString());
-      st+="<tr><th>Union:</th><td>"+bv1.union(bv2).toString()+"</td></tr>";
-      // console.log(bv1.invert());
-      console.log(bv1.difference(bv2).toString());
-      st+="<tr><th>BV1-BV2:</th><td>"+bv1.difference(bv2).toString()+"</td></tr>";
-      console.log(bv2.difference(bv1).toString());
-      st+="<tr><th>BV2-BV1:</th><td>"+bv2.difference(bv1).toString()+"</td></tr>";
-      st+="</table>";
-      document.getElementById("bvotest1").innerHTML=st;
-      
-      var v1 = [];
-      for(var i = 0; i<80; i++) v1.push(Math.random()>0.5);
 
-      var v2 = [];
-      for(var i = 0; i<80; i++) v2.push(Math.random()>0.5);
-	  
-	  bv1 = new BinaryVector(v1);
-	  bv2 = new BinaryVector(v2);
-      var st ="<table>";      
-      console.log(bv1.toString());
-      st+="<tr><th>BV1:</th><td>"+bv1.toString()+"</td></tr>";
-      console.log(bv2.toString());
-      st+="<tr><th>BV2:</th><td>"+bv2.toString()+"</td></tr>";
-      console.log(bv1.intersection(bv2).toString());
-      st+="<tr><th>Intersection:</th><td>"+bv1.intersection(bv2).toString()+"</td></tr>";
-      console.log(bv1.union(bv2).toString());
-      st+="<tr><th>Union:</th><td>"+bv1.union(bv2).toString()+"</td></tr>";
-      // console.log(bv1.invert());
-      console.log(bv1.difference(bv2).toString());
-      st+="<tr><th>BV1-BV2:</th><td>"+bv1.difference(bv2).toString()+"</td></tr>";
-      console.log(bv2.difference(bv1).toString());
-      st+="<tr><th>BV2-BV1:</th><td>"+bv2.difference(bv1).toString()+"</td></tr>";
-      st+="</table>";
-      document.getElementById("bvotest2").innerHTML=st;
+const N = 1000
+
+function randomVector(n,pone){
+    var res = []
+    for(var i = 0; i < n; i++){
+	var r = Math.random()
+	if (r<pone) res.push(true)
+	else res.push(false)
+    }
+    return res
+}
+
+function intersection(v1,v2){
+    var res = []
+    for (var i in v1)
+	if (v1[i] && v2[i]) res.push(true)
+        else res.push(false)
+    return res
+}
+
+function union(v1,v2){
+    var res = []
+    for (var i in v1)
+	if (v1[i] || v2[i]) res.push(true)
+        else res.push(false)
+    return res
+}
+
+function difference(v1,v2){
+    var res = []
+    for (var i in v1)
+	if (v1[i] && !v2[i]) res.push(true)
+        else res.push(false)
+    return res
+}
+
+
+function runTest(M,pone){
+    var startime = new Date().getTime()
+    var vectorpairs = []    
+    for (var i = 0; i < N; i++){
+	var v1 = randomVector(M,0.5)
+	var v2 = randomVector(M,0.5)
+	vectorpairs.push([v1,v2])
+    }
+    var time1 = new Date().getTime() - startime
+    var startime = new Date().getTime()
+    var bvovectorpairs = []
+    for (var i = 0; i < N; i++){
+	var bv1 = new BinaryVector(vectorpairs[i][0])
+	var bv2 = new BinaryVector(vectorpairs[i][1])
+	bvovectorpairs.push([bv1,bv2])
+    }
+    var time2 = new Date().getTime() - startime
+    var startime = new Date().getTime()    
+    for (var i = 0; i < N; i++){
+	var res = bvovectorpairs[i][0].intersection(bvovectorpairs[i][1])
+    }    
+    var time3 = new Date().getTime() - startime
+    var startime = new Date().getTime()
+    for (var i = 0; i < N; i++){
+	var res2 = intersection(vectorpairs[i][0],vectorpairs[i][1])
+    }
+    var time4 = new Date().getTime() - startime
+    var startime = new Date().getTime()    
+    for (var i = 0; i < N; i++){
+	var res3 = bvovectorpairs[i][0].union(bvovectorpairs[i][1])
+    }
+    var time5 = new Date().getTime() - startime
+    var startime = new Date().getTime()
+    for (var i = 0; i < N; i++){    
+	var res4 = union(vectorpairs[i][0],vectorpairs[i][1])
+    }
+    var time6 = new Date().getTime() - startime
+    var startime = new Date().getTime()    
+    for (var i = 0; i < N; i++){    
+	var res5 = bvovectorpairs[i][0].difference(bvovectorpairs[i][1])
+    }
+    var time7 = new Date().getTime() - startime
+    var startime = new Date().getTime()
+    for (var i = 0; i < N; i++){    
+	var res6 = difference(vectorpairs[i][0],vectorpairs[i][1])
+    }
+    var time8 = new Date().getTime() - startime 		
+    document.getElementById("res_"+M+"_"+pone+"_t1").innerHTML = time1
+    document.getElementById("res_"+M+"_"+pone+"_t2").innerHTML = time2
+    document.getElementById("res_"+M+"_"+pone+"_t3").innerHTML = time3
+    document.getElementById("res_"+M+"_"+pone+"_t4").innerHTML = time4
+    document.getElementById("res_"+M+"_"+pone+"_t5").innerHTML = time5
+    document.getElementById("res_"+M+"_"+pone+"_t6").innerHTML = time6
+    document.getElementById("res_"+M+"_"+pone+"_t7").innerHTML = time7
+    document.getElementById("res_"+M+"_"+pone+"_t8").innerHTML = time8         
+}
+
+runTest(10,0.5)
+runTest(100,0.5)
+runTest(1000,0.5)
+runTest(10000,0.5)
+runTest(100000,0.5)
+
+runTest(1000,0.1)
+runTest(1000,0.2)
+runTest(1000,0.3)
+runTest(1000,0.4)
+runTest(1000,0.6)
+runTest(1000,0.7)
+runTest(1000,0.8)
+runTest(1000,0.9)
       
-    </script>
-    
+     </script>    
   </body>
 </html>
